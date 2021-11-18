@@ -1,7 +1,7 @@
 <template>
     <div class="container">
 
-        <span style="color: white;" :class="key1 = itemNum-1">
+        <span style="color: white;" :class="key1  = itemNum-1">
             {{
                 itemDetail[itemNum-1].topic_name
             }}
@@ -56,6 +56,7 @@ import { mapState, mapMutations } from 'vuex'
 export default {
     data() {
         return {
+            a: 0,
             isnext: true,
             isT: false,
             test: true,
@@ -79,21 +80,15 @@ export default {
                 return;
             }
 
-            
-            if(this.state.itemNum <= this.state.itemDetail.length) {
+            if(this.a < this.state.itemDetail.length) {
                 this.toPage()
             }
-            
-            
-            
+                        
         },
         toPage() {
 
-            
             this.addNum(1);
-            
-                   
-
+            this.a++;
             if(this.state.itemNum === 5){
                 this.isnext = false
             }
