@@ -12,7 +12,11 @@
             <Score ref="child"></Score>
         </h1>
 
-        <div style="color: white" class="context">
+        <div class="title-center" v-if="onstart">
+            <img src="../images/1-2.png" alt="">
+        </div>
+
+        <div style="color: white" v-if="!onstart" class="titleChoice">
             
             <!-- <div style="margin-top: 20px"  v-for="(arr, index) in itemDetail[0].topic_answer" :key="index">
                 
@@ -40,11 +44,14 @@
 
             </div>
 
-            <button @click="toPageX()" :class="{next: isnext, end: !isnext}">
+        </div>
+            <button @click="lastDance()" :class="{first:onstart}">
+
+            </button>
+
+            <button @click="toPageX()"  :class="{next: isnext, end: !isnext}" v-if="!onstart">
                 
             </button>
-        </div>
-
     </div>
 </template>
 
@@ -56,6 +63,7 @@ import { mapState, mapMutations } from 'vuex'
 export default {
     data() {
         return {
+            onstart: true,
             a: 0,
             isnext: true,
             isT: false,
@@ -74,7 +82,11 @@ export default {
         join() {
 
         },
+        lastDance(){
+            this.onstart = false;
+        },
         toPageX() {
+           
             if(this.isT === false) {
                 alert("请选择一项");
                 return;
@@ -90,7 +102,7 @@ export default {
             this.addNum(1);
             this.a++;
             if(this.state.itemNum === 5){
-                this.isnext = false
+                this.isnext = false;
             }
             this.isT = false;
             console.log(this.state.itemDetail[this.key1].topic_answer[index].topic_answer_id);
@@ -150,6 +162,22 @@ export default {
 </script>
 
 <style>
+    .titleChoice{
+        margin-top: 50px;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .title-center img{
+        width: 80%;
+        height: 250px;
+        /* background-size: contain; */
+        /* background:no-repeat url('../images/1-2.png'); */
+    }
 
     .isTaped {
         color: red !important;
@@ -195,6 +223,14 @@ export default {
         width: 122px;
         height: 67px;
         background: url('../images/2-2.png') no-repeat;
+        background-size: 100% 100%;
+        margin-top: 50px;
+    }
+
+    .first {
+        width: 122px;
+        height: 67px;
+        background: url('../images/1-4.png') no-repeat;
         background-size: 100% 100%;
     }
 </style>
