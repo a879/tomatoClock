@@ -3,6 +3,16 @@ import mutations from './mutations'
 import Vue from 'vue'
 Vue.use(Vuex) 
 const state = {
+
+	todolists: [],
+	todolist: '',
+
+
+
+
+
+
+
     level: '第一周', //活动周数
 	itemNum: 1, // 第几题
 	allTime: 0,  //总共用时

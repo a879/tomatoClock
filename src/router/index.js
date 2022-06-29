@@ -3,9 +3,10 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import clock from '@/components/clock'
 import Header from '@/commons/Header'
-import Login from '@/views/Login'
 import Add from '@/views/AddContent'
 import Get from '@/views/GetContent'
+import TodoList from '@/components/TodoList'
+import A from '@/components/TodoList'
 
 Vue.use(Router)
 
@@ -39,23 +40,11 @@ export default new Router({
         '@/components/Start'
       )
     },{
-      path: '/title_item',
-      name: 'title',
-      component: () => import(
-        '@/components/TitleItem'
-      )
+      path: '/todolist',
+      component: TodoList
     },{
-      path: '/d',
-      name: 'd',
-      component: () => import(
-        '@/views/D'
-      )
-    },{
-      path: '/dt',
-      name: 'dt',
-      component: () => import(
-        '@/views/Dt'
-      )
+      path: '/a',
+      component: A
     }
     
   ]

@@ -10,6 +10,13 @@ export default {
            state.answerid.push(ss);
         //    console.log(state.answerid);
            return state.answerid
+        },
+        addAims(state, newAim) {
+            if(newAim !== "") {
+                state.todolists.push(newAim);
+            }
+
+            return state.todolists
         }
     }
     
