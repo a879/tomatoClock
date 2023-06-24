@@ -78,7 +78,9 @@ export default {
             isColor: false
         }
     },
-
+    onMounted: () => {
+        clearAims()
+    },
     mounted: function(){
             this.tran()
     },
